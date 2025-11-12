@@ -1,1 +1,1 @@
-console.log('KissanConnect v2');
+document.getElementById('menuBtn').addEventListener('click', function(){ const nav = document.querySelector('nav'); if(nav) nav.classList.toggle('hidden'); });
