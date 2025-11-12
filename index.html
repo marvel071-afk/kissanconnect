@@ -7,13 +7,9 @@
   <meta name="description" content="KissanConnect — a modern, professional portal connecting farmers and buyers." />
   <script src="https://cdn.tailwindcss.com"></script>
   <style>
-    /* small custom tweaks */
     .grad-green { background: linear-gradient(90deg,#0f766e,#16a34a); }
-    /* chatbot styling */
     #chatbot-box { width: 360px; max-width: calc(100% - 32px); }
-    @media (max-width: 640px) {
-      #chatbot-box { right: 12px; left: 12px; width: auto; bottom: 80px; }
-    }
+    @media (max-width: 640px) { #chatbot-box { right: 12px; left: 12px; width: auto; bottom: 80px; } }
   </style>
 </head>
 <body class="antialiased text-gray-800 bg-gray-50">
@@ -32,9 +28,9 @@
         <a href="#features" class="hover:underline">Features</a>
         <a href="#marketplace" class="hover:underline">Marketplace</a>
         <a href="#schemes" class="hover:underline">Schemes</a>
-        <a href="#insights" class="hover:underline">Insights</a>
+        <a href="#diseases" class="hover:underline">Crop Disease</a>
+        <a href="#soil" class="hover:underline">Soil Support</a>
         <a href="#contact" class="hover:underline">Contact</a>
-        <a href="#getstarted" class="bg-white text-green-700 px-3 py-1 rounded-md shadow-sm">Get Started</a>
       </nav>
 
       <button id="menuBtn" class="md:hidden p-2" aria-label="Toggle menu">
@@ -56,21 +52,6 @@
           <a href="#marketplace" class="inline-block bg-green-600 text-white px-5 py-3 rounded-md shadow hover:scale-105 transform transition">Explore Marketplace</a>
           <a href="#contact" class="inline-block border border-gray-200 px-5 py-3 rounded-md text-gray-700 hover:bg-gray-100 transition">Request a Demo</a>
         </div>
-
-        <ul class="mt-8 grid grid-cols-1 sm:grid-cols-3 gap-3">
-          <li class="bg-white p-4 rounded-md shadow-sm">
-            <h4 class="font-semibold">Verified Buyers</h4>
-            <p class="text-sm text-gray-500">Secure, trusted connections</p>
-          </li>
-          <li class="bg-white p-4 rounded-md shadow-sm">
-            <h4 class="font-semibold">Transparent Pricing</h4>
-            <p class="text-sm text-gray-500">Clear listings, fair trade</p>
-          </li>
-          <li class="bg-white p-4 rounded-md shadow-sm">
-            <h4 class="font-semibold">Local Insights</h4>
-            <p class="text-sm text-gray-500">Weather & advisories</p>
-          </li>
-        </ul>
       </div>
 
       <div class="flex justify-center">
@@ -91,7 +72,6 @@
             </div>
           </div>
         </div>
-
         <div class="bg-white p-6 rounded-md shadow">
           <div class="flex items-start gap-4">
             <img src="./weather.svg" class="h-10 w-10" alt="weather"/>
@@ -101,7 +81,6 @@
             </div>
           </div>
         </div>
-
         <div class="bg-white p-6 rounded-md shadow">
           <div class="flex items-start gap-4">
             <img src="./security.svg" class="h-10 w-10" alt="security"/>
@@ -110,6 +89,98 @@
               <p class="text-sm text-gray-600">Simple signup, secure access, and privacy controls.</p>
             </div>
           </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Government Schemes -->
+    <section id="schemes" class="mt-16">
+      <div class="flex items-center justify-between mb-4">
+        <h3 class="text-2xl font-bold">Government Schemes for Farmers</h3>
+        <a href="https://farmer.gov.in/" target="_blank" class="text-sm text-green-600">View official portal →</a>
+      </div>
+      <div class="mb-6 flex gap-3">
+        <input id="schemeSearch" type="text" placeholder="Search schemes (e.g., insurance, subsidy)" class="flex-1 p-3 border rounded" />
+        <select id="schemeFilter" class="p-3 border rounded">
+          <option value="all">All categories</option>
+          <option value="insurance">Insurance</option>
+          <option value="subsidy">Subsidy</option>
+          <option value="soil">Soil & Input</option>
+        </select>
+      </div>
+      <div id="schemesGrid" class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <article data-cat="subsidy" class="scheme-card bg-white p-5 rounded-md shadow">
+          <h4 class="font-semibold">PM-KISAN Samman Nidhi</h4>
+          <p class="text-sm text-gray-600 mt-2">Direct income support to small and marginal farmers (₹6,000 per year).</p>
+          <a href="https://pmkisan.gov.in/" target="_blank" class="text-green-600 text-sm mt-3 inline-block">Learn more →</a>
+        </article>
+        <article data-cat="soil" class="scheme-card bg-white p-5 rounded-md shadow">
+          <h4 class="font-semibold">Soil Health Card Scheme</h4>
+          <p class="text-sm text-gray-600 mt-2">Soil testing and advisory services to improve productivity.</p>
+          <a href="https://soilhealth.dac.gov.in/" target="_blank" class="text-green-600 text-sm mt-3 inline-block">Learn more →</a>
+        </article>
+        <article data-cat="insurance" class="scheme-card bg-white p-5 rounded-md shadow">
+          <h4 class="font-semibold">PM Fasal Bima Yojana</h4>
+          <p class="text-sm text-gray-600 mt-2">Crop insurance to protect against losses due to natural calamities.</p>
+          <a href="https://pmfby.gov.in/" target="_blank" class="text-green-600 text-sm mt-3 inline-block">Learn more →</a>
+        </article>
+      </div>
+    </section>
+
+    <!-- Crop Disease & Prevention -->
+    <section id="diseases" class="mt-16">
+      <div class="flex items-center justify-between mb-4">
+        <h3 class="text-2xl font-bold">Crop Disease & Prevention</h3>
+        <a href="#" class="text-sm text-green-600">Report an issue →</a>
+      </div>
+      <p class="text-sm text-gray-600 mb-4">Common crop diseases, symptoms, and suggested prevention steps. If you suspect a disease, contact local extension services.</p>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <article class="bg-white p-5 rounded-md shadow">
+          <h4 class="font-semibold">Leaf Spot (Wheat)</h4>
+          <p class="text-sm text-gray-600 mt-2">Symptoms: Small brown spots on leaves that may merge. Reduced photosynthesis.</p>
+          <p class="text-sm text-gray-600 mt-2"><strong>Prevention:</strong> Remove infected debris, rotate crops, apply approved fungicide as per label.</p>
+        </article>
+
+        <article class="bg-white p-5 rounded-md shadow">
+          <h4 class="font-semibold">Bacterial Blight (Rice)</h4>
+          <p class="text-sm text-gray-600 mt-2">Symptoms: Water-soaked lesions on leaves; wilting in severe cases.</p>
+          <p class="text-sm text-gray-600 mt-2"><strong>Prevention:</strong> Use resistant varieties, maintain proper spacing, avoid over-irrigation.</p>
+        </article>
+
+        <article class="bg-white p-5 rounded-md shadow">
+          <h4 class="font-semibold">Yellow Mosaic (Turmeric)</h4>
+          <p class="text-sm text-gray-600 mt-2">Symptoms: Yellowing of leaves, stunted growth due to viral infection.</p>
+          <p class="text-sm text-gray-600 mt-2"><strong>Prevention:</strong> Use virus-free planting material, control vector insects (aphids), rogue infected plants.</p>
+        </article>
+
+        <article class="bg-white p-5 rounded-md shadow">
+          <h4 class="font-semibold">General Advice</h4>
+          <p class="text-sm text-gray-600 mt-2">Always confirm diagnosis via local extension or labs before applying chemicals. Follow label instructions and safety precautions.</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- Soil Health & Support -->
+    <section id="soil" class="mt-16">
+      <div class="flex items-center justify-between mb-4">
+        <h3 class="text-2xl font-bold">Soil Health & Support</h3>
+        <a href="#" class="text-sm text-green-600">Find a soil lab →</a>
+      </div>
+      <p class="text-sm text-gray-600 mb-4">Simple soil tests and recommendations to improve fertility and yield.</p>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div class="bg-white p-5 rounded-md shadow">
+          <h4 class="font-semibold">Soil Testing</h4>
+          <p class="text-sm text-gray-600 mt-2">Collect samples from multiple spots (0–15 cm depth). Use local soil labs or mobile test kits.</p>
+        </div>
+        <div class="bg-white p-5 rounded-md shadow">
+          <h4 class="font-semibold">Nutrient Balance</h4>
+          <p class="text-sm text-gray-600 mt-2">Follow NPK recommendations based on soil test. Apply organic matter to improve structure.</p>
+        </div>
+        <div class="bg-white p-5 rounded-md shadow">
+          <h4 class="font-semibold">Soil Conservation</h4>
+          <p class="text-sm text-gray-600 mt-2">Use cover crops, contour farming and mulching to prevent erosion and preserve moisture.</p>
         </div>
       </div>
     </section>
@@ -130,7 +201,6 @@
             <a class="text-sm text-green-600" href="#">Contact Seller</a>
           </div>
         </article>
-
         <article class="bg-white p-5 rounded-md shadow hover:shadow-md transition">
           <img src="./wheat.svg" alt="Wheat" class="h-44 w-full object-cover rounded mb-3 bg-white p-3"/>
           <h4 class="font-semibold">Whole Wheat</h4>
@@ -140,7 +210,6 @@
             <a class="text-sm text-green-600" href="#">Contact Seller</a>
           </div>
         </article>
-
         <article class="bg-white p-5 rounded-md shadow hover:shadow-md transition">
           <img src="./rice.svg" alt="Rice" class="h-44 w-full object-cover rounded mb-3 bg-white p-3"/>
           <h4 class="font-semibold">Basmati Rice</h4>
@@ -149,53 +218,6 @@
             <div class="text-lg font-bold">₹40,000</div>
             <a class="text-sm text-green-600" href="#">Contact Seller</a>
           </div>
-        </article>
-      </div>
-    </section>
-
-    <!-- Government Schemes -->
-    <section id="schemes" class="mt-16">
-      <div class="flex items-center justify-between mb-4">
-        <h3 class="text-2xl font-bold">Government Schemes for Farmers</h3>
-        <a href="https://farmer.gov.in/" target="_blank" class="text-sm text-green-600">View official portal →</a>
-      </div>
-
-      <!-- Search / filter (UI only) -->
-      <div class="mb-6 flex gap-3">
-        <input id="schemeSearch" type="text" placeholder="Search schemes (e.g., insurance, subsidy)" class="flex-1 p-3 border rounded" />
-        <select id="schemeFilter" class="p-3 border rounded">
-          <option value="all">All categories</option>
-          <option value="insurance">Insurance</option>
-          <option value="subsidy">Subsidy</option>
-          <option value="soil">Soil & Input</option>
-        </select>
-      </div>
-
-      <div id="schemesGrid" class="grid grid-cols-1 md:grid-cols-3 gap-6">
-        <!-- Sample schemes (static) -->
-        <article data-cat="subsidy" class="scheme-card bg-white p-5 rounded-md shadow">
-          <h4 class="font-semibold">PM-KISAN Samman Nidhi</h4>
-          <p class="text-sm text-gray-600 mt-2">Direct income support to small and marginal farmers (₹6,000 per year).</p>
-          <a href="https://pmkisan.gov.in/" target="_blank" class="text-green-600 text-sm mt-3 inline-block">Learn more →</a>
-        </article>
-
-        <article data-cat="soil" class="scheme-card bg-white p-5 rounded-md shadow">
-          <h4 class="font-semibold">Soil Health Card Scheme</h4>
-          <p class="text-sm text-gray-600 mt-2">Soil testing and advisory services to improve productivity.</p>
-          <a href="https://soilhealth.dac.gov.in/" target="_blank" class="text-green-600 text-sm mt-3 inline-block">Learn more →</a>
-        </article>
-
-        <article data-cat="insurance" class="scheme-card bg-white p-5 rounded-md shadow">
-          <h4 class="font-semibold">PM Fasal Bima Yojana</h4>
-          <p class="text-sm text-gray-600 mt-2">Crop insurance to protect against losses due to natural calamities.</p>
-          <a href="https://pmfby.gov.in/" target="_blank" class="text-green-600 text-sm mt-3 inline-block">Learn more →</a>
-        </article>
-
-        <!-- Additional sample -->
-        <article data-cat="subsidy" class="scheme-card bg-white p-5 rounded-md shadow">
-          <h4 class="font-semibold">Subsidy for Micro Irrigation</h4>
-          <p class="text-sm text-gray-600 mt-2">Assistance for drip and sprinkler irrigation systems to conserve water.</p>
-          <a href="https://pmksy.gov.in/" target="_blank" class="text-green-600 text-sm mt-3 inline-block">Learn more →</a>
         </article>
       </div>
     </section>
@@ -213,12 +235,10 @@
           </div>
         </div>
       </div>
-
       <div class="bg-white p-6 rounded-md shadow">
         <h4 class="font-semibold mb-2">Market Trends</h4>
         <p class="text-sm text-gray-500">Average prices have increased by <strong>4.3%</strong> this season.</p>
       </div>
-
       <div class="bg-white p-6 rounded-md shadow">
         <h4 class="font-semibold mb-2">Advisory</h4>
         <p class="text-sm text-gray-500">Apply irrigation after light rainfall for best nutrient uptake.</p>
@@ -231,7 +251,6 @@
         <div>
           <h3 class="text-2xl font-bold mb-2">Get in touch</h3>
           <p class="text-sm text-gray-600 mb-4">Questions, partnerships or listing support — we're here to help.</p>
-
           <ul class="text-sm space-y-2">
             <li><strong>Email:</strong> support@kissanconnect.example</li>
             <li><strong>Phone:</strong> +91 98765 43210</li>
@@ -270,39 +289,28 @@
     <div id="chat-content" class="p-3 h-64 overflow-y-auto text-sm text-gray-700"></div>
     <div class="p-3 border-t">
       <div class="flex gap-2">
-        <input id="chat-input" type="text" placeholder="Ask about schemes, crops, or advice..." class="flex-1 p-2 border rounded" />
+        <input id="chat-input" type="text" placeholder="Ask about schemes, diseases, soil..." class="flex-1 p-2 border rounded" />
         <button id="chat-send" class="bg-green-600 text-white px-3 py-2 rounded">Send</button>
       </div>
     </div>
   </div>
 
-  <!-- Script: menu, contact demo, schemes filter, chatbot -->
+  <!-- Scripts -->
   <script>
-    /* menu toggle */
+    // menu toggle
     document.getElementById('menuBtn').addEventListener('click', function(){
-      // toggle nav visibility (for small screens)
-      const nav = document.querySelector('nav');
-      if (nav) nav.classList.toggle('hidden');
+      const nav = document.querySelector('nav'); if(nav) nav.classList.toggle('hidden');
     });
 
-    /* contact form demo */
+    // contact demo
     const contactForm = document.getElementById('contactForm');
-    if(contactForm){
-      contactForm.addEventListener('submit', function(e){
-        e.preventDefault();
-        alert('Demo form: In the production app this would send your message to the backend.');
-        this.reset();
-      });
-    }
+    if(contactForm){ contactForm.addEventListener('submit', function(e){ e.preventDefault(); alert('Demo form: message would be sent to the backend.'); this.reset(); }); }
 
-    /* schemes search & filter (client-side UI-only) */
+    // schemes search & filter
     const schemeSearch = document.getElementById('schemeSearch');
     const schemeFilter = document.getElementById('schemeFilter');
     const schemeCards = Array.from(document.querySelectorAll('.scheme-card'));
-
-    function updateSchemes() {
-      const text = schemeSearch.value.trim().toLowerCase();
-      const cat = schemeFilter.value;
+    function updateSchemes(){ const text = schemeSearch.value.trim().toLowerCase(); const cat = schemeFilter.value;
       schemeCards.forEach(card => {
         const title = (card.querySelector('h4')?.innerText || '').toLowerCase();
         const desc = (card.querySelector('p')?.innerText || '').toLowerCase();
@@ -315,68 +323,20 @@
     if(schemeSearch) schemeSearch.addEventListener('input', updateSchemes);
     if(schemeFilter) schemeFilter.addEventListener('change', updateSchemes);
 
-    /* Chatbot (simple rule-based replies) */
+    // chatbot
     const chatbotBtn = document.getElementById('chatbot-btn');
     const chatbotBox = document.getElementById('chatbot-box');
     const chatbotClose = document.getElementById('chatbot-close');
     const chatContent = document.getElementById('chat-content');
     const chatInput = document.getElementById('chat-input');
     const chatSend = document.getElementById('chat-send');
-
-    function appendMessage(who, html){
-      const div = document.createElement('div');
-      div.className = who === 'bot' ? 'mb-3 p-2 bg-green-50 rounded' : 'mb-3 p-2 bg-gray-100 rounded';
-      div.innerHTML = html;
-      chatContent.appendChild(div);
-      chatContent.scrollTop = chatContent.scrollHeight;
-    }
-
-    chatbotBtn.addEventListener('click', () => {
-      chatbotBox.classList.toggle('hidden');
-      chatInput.focus();
-      if(chatContent.innerHTML.trim() === '') {
-        appendMessage('bot','<strong>Hi!</strong> I am the KissanConnect assistant. Ask about schemes, crop tips, or marketplace.');
-      }
-    });
-
+    function appendMessage(who, html){ const div = document.createElement('div'); div.className = who === 'bot' ? 'mb-3 p-2 bg-green-50 rounded' : 'mb-3 p-2 bg-gray-100 rounded'; div.innerHTML = html; chatContent.appendChild(div); chatContent.scrollTop = chatContent.scrollHeight; }
+    chatbotBtn.addEventListener('click', () => { chatbotBox.classList.toggle('hidden'); chatInput.focus(); if(chatContent.innerHTML.trim() === '') { appendMessage('bot','<strong>Hi!</strong> I am the KissanConnect assistant. Ask about schemes, crop diseases, or soil tips.'); } });
     if(chatbotClose) chatbotClose.addEventListener('click', ()=> chatbotBox.classList.add('hidden'));
-
-    function botReply(input){
-      const text = input.toLowerCase();
-      if(text.includes('scheme') || text.includes('insurance') || text.includes('pm-kisan')) {
-        return 'You can view Government schemes in the "Government Schemes" section — try searching "insurance" or "subsidy".';
-      }
-      if(text.includes('weather') || text.includes('forecast')) {
-        return 'Local weather info is available in Insights. For live forecasts, we recommend integrating OpenWeatherMap API.';
-      }
-      if(text.includes('turmeric') || text.includes('wheat') || text.includes('rice') || text.includes('crop')) {
-        return 'Crop suggestions depend on soil and season. Consider soil testing and local advisories for specific recommendations.';
-      }
-      if(text.includes('contact') || text.includes('seller')) {
-        return 'To contact a seller, use the "Contact Seller" link in the marketplace preview. For full transactions, we recommend registering and using the dashboard.';
-      }
-      // fallback
-      return "Sorry I don't understand that exactly — try asking about 'schemes', 'weather', or 'crop advice'.";
-    }
-
-    function sendChat(){
-      const txt = chatInput.value.trim();
-      if(!txt) return;
-      appendMessage('user', '<strong>You:</strong> ' + txt);
-      chatInput.value = '';
-      appendMessage('bot','<em>thinking…</em>');
-      setTimeout(()=> {
-        // remove last "thinking" element
-        const last = chatContent.lastChild;
-        if(last && last.innerHTML.includes('thinking')) last.remove();
-        const reply = botReply(txt);
-        appendMessage('bot', '<strong>Bot:</strong> ' + reply);
-      }, 700);
-    }
-
+    function botReply(input){ const text = input.toLowerCase(); if(text.includes('scheme')||text.includes('insurance')||text.includes('pm-kisan')) return 'Check the Government Schemes section. Try searching "insurance" or "subsidy".'; if(text.includes('disease')||text.includes('leaf')||text.includes('blight')) return 'See the Crop Disease & Prevention section for common symptoms and prevention steps; contact extension for lab confirmation.'; if(text.includes('soil')||text.includes('ph')||text.includes('nutrient')) return 'Collect a soil sample (0-15cm) and test at a local lab. Use NPK recommendations from soil report.'; if(text.includes('weather')||text.includes('forecast')) return 'Local weather is shown in Insights — integrate OpenWeatherMap for live data.'; if(text.includes('turmeric')||text.includes('wheat')||text.includes('rice')) return 'Crop-specific advice varies by season and soil. Consider soil testing and local advisories.'; return "I didn't understand that. Try asking about 'schemes', 'disease', or 'soil'."; }
+    function sendChat(){ const txt = chatInput.value.trim(); if(!txt) return; appendMessage('user','<strong>You:</strong> '+txt); chatInput.value=''; appendMessage('bot','<em>thinking…</em>'); setTimeout(()=>{ const last = chatContent.lastChild; if(last && last.innerHTML.includes('thinking')) last.remove(); appendMessage('bot','<strong>Bot:</strong> '+botReply(txt)); },700); }
     if(chatSend) chatSend.addEventListener('click', sendChat);
-    if(chatInput) chatInput.addEventListener('keydown', function(e){ if(e.key === 'Enter') sendChat(); });
-
+    if(chatInput) chatInput.addEventListener('keydown', function(e){ if(e.key==='Enter') sendChat(); });
   </script>
 </body>
 </html>
