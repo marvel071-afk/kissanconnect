@@ -7,11 +7,17 @@
   <meta name="description" content="KissanConnect — a modern, professional portal connecting farmers and buyers." />
   <script src="https://cdn.tailwindcss.com"></script>
   <style>
-    /* Small design tweaks */
+    /* small custom tweaks */
     .grad-green { background: linear-gradient(90deg,#0f766e,#16a34a); }
+    /* chatbot styling */
+    #chatbot-box { width: 360px; max-width: calc(100% - 32px); }
+    @media (max-width: 640px) {
+      #chatbot-box { right: 12px; left: 12px; width: auto; bottom: 80px; }
+    }
   </style>
 </head>
 <body class="antialiased text-gray-800 bg-gray-50">
+  <!-- Header -->
   <header class="grad-green text-white">
     <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
       <div class="flex items-center gap-3">
@@ -21,21 +27,25 @@
           <p class="text-xs -mt-1 opacity-90">Smart tools for modern agriculture</p>
         </div>
       </div>
+
       <nav class="hidden md:flex gap-6 items-center text-sm">
         <a href="#features" class="hover:underline">Features</a>
         <a href="#marketplace" class="hover:underline">Marketplace</a>
+        <a href="#schemes" class="hover:underline">Schemes</a>
         <a href="#insights" class="hover:underline">Insights</a>
         <a href="#contact" class="hover:underline">Contact</a>
         <a href="#getstarted" class="bg-white text-green-700 px-3 py-1 rounded-md shadow-sm">Get Started</a>
       </nav>
-      <button id="menuBtn" class="md:hidden p-2">
-        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+
+      <button id="menuBtn" class="md:hidden p-2" aria-label="Toggle menu">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
         </svg>
       </button>
     </div>
   </header>
 
+  <!-- Main -->
   <main class="max-w-6xl mx-auto px-6 py-12">
     <!-- Hero -->
     <section class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
@@ -81,6 +91,7 @@
             </div>
           </div>
         </div>
+
         <div class="bg-white p-6 rounded-md shadow">
           <div class="flex items-start gap-4">
             <img src="./weather.svg" class="h-10 w-10" alt="weather"/>
@@ -90,6 +101,7 @@
             </div>
           </div>
         </div>
+
         <div class="bg-white p-6 rounded-md shadow">
           <div class="flex items-start gap-4">
             <img src="./security.svg" class="h-10 w-10" alt="security"/>
@@ -137,6 +149,53 @@
             <div class="text-lg font-bold">₹40,000</div>
             <a class="text-sm text-green-600" href="#">Contact Seller</a>
           </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- Government Schemes -->
+    <section id="schemes" class="mt-16">
+      <div class="flex items-center justify-between mb-4">
+        <h3 class="text-2xl font-bold">Government Schemes for Farmers</h3>
+        <a href="https://farmer.gov.in/" target="_blank" class="text-sm text-green-600">View official portal →</a>
+      </div>
+
+      <!-- Search / filter (UI only) -->
+      <div class="mb-6 flex gap-3">
+        <input id="schemeSearch" type="text" placeholder="Search schemes (e.g., insurance, subsidy)" class="flex-1 p-3 border rounded" />
+        <select id="schemeFilter" class="p-3 border rounded">
+          <option value="all">All categories</option>
+          <option value="insurance">Insurance</option>
+          <option value="subsidy">Subsidy</option>
+          <option value="soil">Soil & Input</option>
+        </select>
+      </div>
+
+      <div id="schemesGrid" class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <!-- Sample schemes (static) -->
+        <article data-cat="subsidy" class="scheme-card bg-white p-5 rounded-md shadow">
+          <h4 class="font-semibold">PM-KISAN Samman Nidhi</h4>
+          <p class="text-sm text-gray-600 mt-2">Direct income support to small and marginal farmers (₹6,000 per year).</p>
+          <a href="https://pmkisan.gov.in/" target="_blank" class="text-green-600 text-sm mt-3 inline-block">Learn more →</a>
+        </article>
+
+        <article data-cat="soil" class="scheme-card bg-white p-5 rounded-md shadow">
+          <h4 class="font-semibold">Soil Health Card Scheme</h4>
+          <p class="text-sm text-gray-600 mt-2">Soil testing and advisory services to improve productivity.</p>
+          <a href="https://soilhealth.dac.gov.in/" target="_blank" class="text-green-600 text-sm mt-3 inline-block">Learn more →</a>
+        </article>
+
+        <article data-cat="insurance" class="scheme-card bg-white p-5 rounded-md shadow">
+          <h4 class="font-semibold">PM Fasal Bima Yojana</h4>
+          <p class="text-sm text-gray-600 mt-2">Crop insurance to protect against losses due to natural calamities.</p>
+          <a href="https://pmfby.gov.in/" target="_blank" class="text-green-600 text-sm mt-3 inline-block">Learn more →</a>
+        </article>
+
+        <!-- Additional sample -->
+        <article data-cat="subsidy" class="scheme-card bg-white p-5 rounded-md shadow">
+          <h4 class="font-semibold">Subsidy for Micro Irrigation</h4>
+          <p class="text-sm text-gray-600 mt-2">Assistance for drip and sprinkler irrigation systems to conserve water.</p>
+          <a href="https://pmksy.gov.in/" target="_blank" class="text-green-600 text-sm mt-3 inline-block">Learn more →</a>
         </article>
       </div>
     </section>
@@ -198,6 +257,126 @@
     </footer>
   </main>
 
-  <script src="./script.js"></script>
+  <!-- Chatbot floating button & box -->
+  <div id="chatbot-btn" title="Open chat" class="fixed bottom-5 right-5 z-50">
+    <button class="bg-green-600 text-white p-4 rounded-full shadow-lg hover:scale-105 transform transition">💬</button>
+  </div>
+
+  <div id="chatbot-box" class="hidden fixed bottom-20 right-5 z-50 bg-white border rounded-lg shadow-lg overflow-hidden">
+    <div class="p-3 border-b bg-green-600 text-white font-semibold flex items-center justify-between">
+      <div>KissanConnect Chatbot</div>
+      <button id="chatbot-close" class="text-white/90 hover:text-white">✕</button>
+    </div>
+    <div id="chat-content" class="p-3 h-64 overflow-y-auto text-sm text-gray-700"></div>
+    <div class="p-3 border-t">
+      <div class="flex gap-2">
+        <input id="chat-input" type="text" placeholder="Ask about schemes, crops, or advice..." class="flex-1 p-2 border rounded" />
+        <button id="chat-send" class="bg-green-600 text-white px-3 py-2 rounded">Send</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Script: menu, contact demo, schemes filter, chatbot -->
+  <script>
+    /* menu toggle */
+    document.getElementById('menuBtn').addEventListener('click', function(){
+      // toggle nav visibility (for small screens)
+      const nav = document.querySelector('nav');
+      if (nav) nav.classList.toggle('hidden');
+    });
+
+    /* contact form demo */
+    const contactForm = document.getElementById('contactForm');
+    if(contactForm){
+      contactForm.addEventListener('submit', function(e){
+        e.preventDefault();
+        alert('Demo form: In the production app this would send your message to the backend.');
+        this.reset();
+      });
+    }
+
+    /* schemes search & filter (client-side UI-only) */
+    const schemeSearch = document.getElementById('schemeSearch');
+    const schemeFilter = document.getElementById('schemeFilter');
+    const schemeCards = Array.from(document.querySelectorAll('.scheme-card'));
+
+    function updateSchemes() {
+      const text = schemeSearch.value.trim().toLowerCase();
+      const cat = schemeFilter.value;
+      schemeCards.forEach(card => {
+        const title = (card.querySelector('h4')?.innerText || '').toLowerCase();
+        const desc = (card.querySelector('p')?.innerText || '').toLowerCase();
+        const cardCat = card.getAttribute('data-cat') || 'all';
+        const matchesText = !text || title.includes(text) || desc.includes(text);
+        const matchesCat = (cat === 'all') || (cardCat === cat);
+        card.style.display = (matchesText && matchesCat) ? '' : 'none';
+      });
+    }
+    if(schemeSearch) schemeSearch.addEventListener('input', updateSchemes);
+    if(schemeFilter) schemeFilter.addEventListener('change', updateSchemes);
+
+    /* Chatbot (simple rule-based replies) */
+    const chatbotBtn = document.getElementById('chatbot-btn');
+    const chatbotBox = document.getElementById('chatbot-box');
+    const chatbotClose = document.getElementById('chatbot-close');
+    const chatContent = document.getElementById('chat-content');
+    const chatInput = document.getElementById('chat-input');
+    const chatSend = document.getElementById('chat-send');
+
+    function appendMessage(who, html){
+      const div = document.createElement('div');
+      div.className = who === 'bot' ? 'mb-3 p-2 bg-green-50 rounded' : 'mb-3 p-2 bg-gray-100 rounded';
+      div.innerHTML = html;
+      chatContent.appendChild(div);
+      chatContent.scrollTop = chatContent.scrollHeight;
+    }
+
+    chatbotBtn.addEventListener('click', () => {
+      chatbotBox.classList.toggle('hidden');
+      chatInput.focus();
+      if(chatContent.innerHTML.trim() === '') {
+        appendMessage('bot','<strong>Hi!</strong> I am the KissanConnect assistant. Ask about schemes, crop tips, or marketplace.');
+      }
+    });
+
+    if(chatbotClose) chatbotClose.addEventListener('click', ()=> chatbotBox.classList.add('hidden'));
+
+    function botReply(input){
+      const text = input.toLowerCase();
+      if(text.includes('scheme') || text.includes('insurance') || text.includes('pm-kisan')) {
+        return 'You can view Government schemes in the "Government Schemes" section — try searching "insurance" or "subsidy".';
+      }
+      if(text.includes('weather') || text.includes('forecast')) {
+        return 'Local weather info is available in Insights. For live forecasts, we recommend integrating OpenWeatherMap API.';
+      }
+      if(text.includes('turmeric') || text.includes('wheat') || text.includes('rice') || text.includes('crop')) {
+        return 'Crop suggestions depend on soil and season. Consider soil testing and local advisories for specific recommendations.';
+      }
+      if(text.includes('contact') || text.includes('seller')) {
+        return 'To contact a seller, use the "Contact Seller" link in the marketplace preview. For full transactions, we recommend registering and using the dashboard.';
+      }
+      // fallback
+      return "Sorry I don't understand that exactly — try asking about 'schemes', 'weather', or 'crop advice'.";
+    }
+
+    function sendChat(){
+      const txt = chatInput.value.trim();
+      if(!txt) return;
+      appendMessage('user', '<strong>You:</strong> ' + txt);
+      chatInput.value = '';
+      appendMessage('bot','<em>thinking…</em>');
+      setTimeout(()=> {
+        // remove last "thinking" element
+        const last = chatContent.lastChild;
+        if(last && last.innerHTML.includes('thinking')) last.remove();
+        const reply = botReply(txt);
+        appendMessage('bot', '<strong>Bot:</strong> ' + reply);
+      }, 700);
+    }
+
+    if(chatSend) chatSend.addEventListener('click', sendChat);
+    if(chatInput) chatInput.addEventListener('keydown', function(e){ if(e.key === 'Enter') sendChat(); });
+
+  </script>
 </body>
 </html>
